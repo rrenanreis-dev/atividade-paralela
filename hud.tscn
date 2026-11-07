@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dn8j0g05spiwc"]
+
+[ext_resource type="Texture2D" uid="uid://du3otdq823y3u" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin (16 x 16).png" id="1_37p78"]
+[ext_resource type="Script" uid="uid://dl8nnyg3dcgk" path="res://control.gd" id="1_64ctp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64ctp"]
+atlas = ExtResource("1_37p78")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sq4i"]
+atlas = ExtResource("1_37p78")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640wx"]
+atlas = ExtResource("1_37p78")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2258"]
+atlas = ExtResource("1_37p78")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mis1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64ctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sq4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_640wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2258")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" unique_id=1531076237]
+
+[node name="control" type="Control" parent="." unique_id=190154198]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_64ctp")
+
+[node name="container" type="MarginContainer" parent="control" unique_id=1071945047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -285.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="moedas_container" type="HBoxContainer" parent="control/container" unique_id=1385848032]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="anim" type="AnimatedSprite2D" parent="control/container/moedas_container" unique_id=1200752829]
+texture_filter = 1
+position = Vector2(312, 11)
+scale = Vector2(0.99999905, 0.96874994)
+sprite_frames = SubResource("SpriteFrames_mis1k")
+autoplay = "default"
+frame_progress = 0.45270863
+
+[node name="contador_moedas" type="Label" parent="control/container/moedas_container" unique_id=1867735620]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+text = "0000"
